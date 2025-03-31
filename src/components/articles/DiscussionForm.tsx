@@ -105,7 +105,9 @@ const DiscussionForm: React.FC<DiscussionFormProps> = ({ setShowForm, articleId,
           queryKey,
           context?.previousDiscussions as PaginatedDiscussionSchema | undefined
         );
-        showErrorToast(error);
+        if (!creationError) {
+          showErrorToast(error);
+        }
         setCreationError(error);
         setIsRetrying(false);
       },
