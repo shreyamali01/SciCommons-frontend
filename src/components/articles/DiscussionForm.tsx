@@ -126,7 +126,7 @@ const DiscussionForm: React.FC<DiscussionFormProps> = ({ setShowForm, articleId,
   };
 
   const handleRetry = () => {
-    setIsRetrying(true); //
+    setIsRetrying(true);
     setCreationError(null);
     const formValues = getValues();
     mutate(
@@ -139,14 +139,7 @@ const DiscussionForm: React.FC<DiscussionFormProps> = ({ setShowForm, articleId,
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="mb-4 rounded bg-white-secondary p-4 shadow">
-      {creationError && (
-        <div className="mb-4 text-red-500">
-          {/* <p>Error creating discussion: {creationError.message}</p> */}
-          {/* <Button onClick={handleRetry} disabled={isPending || isSubmitting} className="mt-2 bg-red-500 text-white hover:bg-red-600">
-            Retry
-          </Button> */}
-        </div>
-      )}
+      {creationError && <div className="mb-4 text-red-500"></div>}
       <FormInput<FormValues>
         label="Topic"
         name="topic"
@@ -184,10 +177,6 @@ const DiscussionForm: React.FC<DiscussionFormProps> = ({ setShowForm, articleId,
           Submit
         </Button>
       )}
-
-      {/* <Button type="submit" className="mt-4 bg-blue-500 text-white hover:bg-blue-600" disabled={isPending || isSubmitting}>
-        Submit
-      </Button> */}
     </form>
   );
 };
